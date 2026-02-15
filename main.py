@@ -1,0 +1,16 @@
+from pet import Pet
+
+doggy = Pet("Bailey",10,2,"Grumpy")
+print(doggy.status())
+doggy.feed(8)
+doggy.rest(7)
+print(doggy.status())
+print()
+my_pet = Pet("Nibbles", 7, 5, "Okay")
+print(my_pet.status())
+my_pet.feed(4)
+print(my_pet.status())
+my_pet.play(30)
+print(my_pet.status())
+my_pet.rest(3)
+print(my_pet.status())
