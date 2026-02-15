@@ -9,6 +9,7 @@ class Pet:
 
     # helper method to make updating the mood much easier
     def _update_mood(self):
+        """updates the mood after each stat change"""
         if self.hunger_level <= 3 and self.energy_level >= 7:
             self.mood = "Happy"
         elif self.hunger_level <= 6 and self.energy_level >= 4:
@@ -19,19 +20,23 @@ class Pet:
         return updated_status
     # class methods
     def feed(self, amount):
+        """subtracts the amount fed from the pet's hunger level"""
         self.hunger_level = max(0, self.hunger_level - amount)
         self._update_mood()
         
     def play(self, minutes):
+        """converts 10 minutes of play time into 1 energy loss"""
         energy_loss = minutes // 10
         self.energy_level = max(0,self.energy_level - energy_loss)
         self._update_mood()
 
     def rest(self, hours):
+        """gain 1 level of energy per hour rested"""
         self.energy_level = min(10, self.energy_level + hours)
         self._update_mood()
 
     def status(self):
+        """display the current status of the pet"""
         current_status = f'Name: {self.name} | Hunger: {self.hunger_level} | Energy: {self.energy_level} | Mood: {self.mood}'
         return current_status
         
